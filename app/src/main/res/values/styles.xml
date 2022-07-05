@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Text styles start -->
+    <style name="Theme.Quwi.Text">
+        <item name="android:textSize">@dimen/text_size_14</item>
+        <item name="android:textColor">@color/text</item>
+    </style>
+
+    <style name="Theme.Quwi.Text.SakkalMajalla.Regular" parent="Theme.Quwi.Text">
+        <item name="android:fontFamily">@font/sakkal_majalla_regular</item>
+    </style>
+
+    <style name="Theme.Quwi.Text.OpenSans.Regular" parent="Theme.Quwi.Text">
+        <item name="android:fontFamily">@font/open_sans_regular</item>
+    </style>
+
+    <style name="Theme.Quwi.Text.OpenSans.Medium" parent="Theme.Quwi.Text">
+        <item name="android:fontFamily">@font/open_sans_medium</item>
+    </style>
+
+    <style name="Theme.Quwi.Text.OpenSans.Bold" parent="Theme.Quwi.Text">
+        <item name="android:fontFamily">@font/open_sans_bold</item>
+    </style>
+    <!-- Text styles end -->
+
+    <!-- Text Input styles start -->
+    <style name="Theme.Quwi.TextInput.Layout" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
+        <item name="boxBackgroundColor">@color/background</item>
+        <item name="boxStrokeColor">@drawable/sl_text_input</item>
+        <item name="boxStrokeWidth">@dimen/size_1</item>
+        <item name="boxStrokeWidthFocused">@dimen/size_1</item>
+        <item name="startIconTint">@color/text_hint</item>
+        <item name="hintEnabled">false</item>
+    </style>
+
+    <style name="Theme.Quwi.TextInput.EditText" parent="Theme.Quwi">
+        <item name="android:textColor">@color/text</item>
+        <item name="android:textSize">@dimen/text_size_16</item>
+        <item name="android:fontFamily">@font/open_sans_regular</item>
+        <item name="android:textColorHint">@color/text_hint</item>
+        <item name="android:paddingTop">0dp</item>
+        <item name="android:paddingBottom">0dp</item>
+        <item name="android:paddingStart">0dp</item>
+        <item name="android:paddingEnd">0dp</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+    <!-- Text Input styles end -->
+
+    <!-- Button styles start -->
+    <style name="Theme.Quwi.MaterialButton" parent="@style/Widget.MaterialComponents.Button.UnelevatedButton">
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">@font/sakkal_majalla_regular</item>
+        <item name="android:textSize">@dimen/text_size_25</item>
+        <item name="backgroundTint">@drawable/sl_button</item>
+    </style>
+
+    <style name="Theme.Quwi.MaterialButton.Text" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="android:textAllCaps">false</item>
+        <item name="android:fontFamily">@font/sakkal_majalla_regular</item>
+        <item name="android:textSize">@dimen/text_size_20</item>
+    </style>
+    <!-- Button styles end -->
+
+    <!-- Image styles start -->
+    <style name="Theme.Quwi.ImageView.Ring" parent="">
+        <item name="cornerSize">50%</item>
+    </style>
+    <!-- Image styles end -->
+
+</resources>

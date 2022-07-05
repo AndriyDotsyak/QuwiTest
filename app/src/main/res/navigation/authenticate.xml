@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/authenticate"
+    app:startDestination="@id/fragLogin">
+
+    <fragment
+        android:id="@+id/fragLogin"
+        android:name="com.quwi.apptest.screen.authenticate.login.LoginFragment"
+        android:label="Login"
+        tools:layout="@layout/fragment_login">
+
+        <action
+            android:id="@+id/actionRegistration"
+            app:destination="@id/fragRegistration" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragRegistration"
+        android:name="com.quwi.apptest.screen.authenticate.registration.RegistrationFragment"
+        android:label="Registration"
+        tools:layout="@layout/fragment_registration">
+
+        <action
+            android:id="@+id/actionLogin"
+            app:destination="@id/fragLogin"
+            app:popUpTo="@id/fragLogin"
+            app:popUpToInclusive="true"
+            app:launchSingleTop="true" />
+    </fragment>
+
+    <activity
+        android:id="@+id/actHome"
+        android:name="com.quwi.apptest.screen.home.HomeActivity"
+        android:label="Home"
+        tools:layout="@layout/activity_home" />
+
+    <action
+        android:id="@+id/actionHome"
+        app:destination="@id/actHome"
+        app:popUpTo="@id/fragLogin"
+        app:popUpToInclusive="true"
+        app:launchSingleTop="true" />
+
+</navigation>

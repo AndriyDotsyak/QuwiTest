@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="com.quwi.apptest.data.model.chat.Channel" />
+        <import type="com.quwi.apptest.utils.DataTimeUtil" />
+        <variable name="channel" type="Channel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ivAvatar"
+            android:layout_width="@dimen/size_60"
+            android:layout_height="@dimen/size_60"
+            android:layout_marginVertical="@dimen/size_8"
+            android:layout_marginStart="@dimen/size_16"
+            app:shapeAppearanceOverlay="@style/Theme.Quwi.ImageView.Ring"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@drawable/ic_placeholder_avatar" />
+
+        <TextView
+            android:id="@+id/tvName"
+            style="@style/Theme.Quwi.Text.OpenSans.Bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/size_8"
+            android:layout_marginEnd="@dimen/size_8"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:textSize="@dimen/text_size_16"
+            android:text="@{channel.requireName().empty ? @string/saved_messages : channel.requireName()}"
+            app:layout_goneMarginEnd="@dimen/size_16"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/tvLastMessage"
+            app:layout_constraintStart_toEndOf="@+id/ivAvatar"
+            app:layout_constraintEnd_toStartOf="@+id/ivReadIndicator"
+            tools:text="User" />
+
+        <TextView
+            android:id="@+id/tvLastMessage"
+            style="@style/Theme.Quwi.Text.OpenSans.Regular"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/size_2"
+            android:layout_marginEnd="@dimen/size_10"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:text="@{channel.requireLastMessageSnippet().empty ? @string/no_messages : channel.requireLastMessageSnippet()}"
+            android:textColor="@color/argent"
+            app:layout_goneMarginEnd="@dimen/size_16"
+            app:layout_constraintTop_toBottomOf="@+id/tvName"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tvName"
+            app:layout_constraintEnd_toStartOf="@+id/ivPinnedIndicator"
+            tools:text="Last message"/>
+
+        <ImageView
+            android:id="@+id/ivReadIndicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/size_8"
+            android:importantForAccessibility="no"
+            android:visibility="@{channel.requireLastMessageRead()}"
+            app:srcCompat="@drawable/ic_double_check_mark"
+            app:tint="@color/green"
+            app:layout_goneMarginEnd="@dimen/size_16"
+            app:layout_constraintTop_toTopOf="@+id/tvTime"
+            app:layout_constraintBottom_toBottomOf="@+id/tvTime"
+            app:layout_constraintEnd_toStartOf="@+id/tvTime" />
+
+        <TextView
+            android:id="@+id/tvTime"
+            style="@style/Theme.Quwi.Text.OpenSans.Regular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/size_16"
+            android:textColor="@color/argent"
+            android:text="@{DataTimeUtil.formatDateForChat(channel.requireLastMessageDate())}"
+            android:visibility="@{!channel.requireLastMessageDate().empty}"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:layout_constraintTop_toTopOf="@+id/tvName"
+            app:layout_constraintBottom_toBottomOf="@+id/tvName"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="00:00" />
+
+        <ImageView
+            android:id="@+id/ivPinnedIndicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/size_16"
+            android:layout_marginTop="@dimen/size_4"
+            android:visibility="@{channel.pinToTop}"
+            app:srcCompat="@drawable/ic_pin"
+            app:layout_constraintTop_toTopOf="@+id/tvLastMessage"
+            app:layout_constraintBottom_toBottomOf="@+id/tvLastMessage"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="@dimen/size_1"
+            android:background="@color/argent"
+            app:layout_constraintStart_toStartOf="@+id/tvName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

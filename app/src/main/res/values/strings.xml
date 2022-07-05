@@ -1,0 +1,23 @@
+<resources>
+
+    <string name="app_name">Quwi Test</string>
+
+    <!-- Authenticate Activity -->
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+
+    <!-- Login Fragment -->
+    <string name="login">Login</string>
+    <string name="not_member_yet">Not a member yet? <b>Register</b></string>
+
+    <!-- Registration Fragment -->
+    <string name="registration">Registration</string>
+    <string name="name">Name</string>
+    <string name="already_have_account">Already have an account? <b>Login</b></string>
+
+    <!-- Chat Fragment -->
+    <string name="messages">Messages</string>
+    <string name="saved_messages">Saved messages</string>
+    <string name="no_messages">No messages</string>
+
+</resources>
